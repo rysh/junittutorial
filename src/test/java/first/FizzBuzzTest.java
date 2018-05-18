@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class FizzBuzzTest {
 
@@ -30,10 +31,18 @@ public class FizzBuzzTest {
 
     @Test
     public void fizzBuzz() {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 15);
         FizzBuzz target = new FizzBuzz();
+        assertEquals("fizzBuzz 1","1",target.fizzBuzz(1));
+        assertEquals("fizzBuzz 2","2",target.fizzBuzz(2));
+        assertEquals("fizzBuzz 3","Fizz",target.fizzBuzz(3));
+    }
 
-        List<String> result = target.process(numbers);
+    @Test
+    public void process() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 15);
+        FizzBuzz target = new FizzBuzz(numbers);
+
+        List<String> result = target.process();
 
         List<String> expected = Arrays.asList("1", "2", "Fizz", "4", "Buzz", "FizzBuzz");
         assertThat(result, Is.is(expected));
