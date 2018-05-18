@@ -17,11 +17,11 @@ public class FizzBuzz {
     }
 
     void run() {
-        process(this.numbers).forEach(System.out::println);
+        process().forEach(System.out::println);
     }
 
-    List<String> process(List<Integer> numbers) {
-        return numbers.stream().map(this::fizzBuzz).collect(Collectors.toList());
+    List<String> process() {
+        return this.numbers.stream().map(this::fizzBuzz).collect(Collectors.toList());
     }
 
     String fizzBuzz(Integer i) {
