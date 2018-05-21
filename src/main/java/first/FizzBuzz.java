@@ -16,15 +16,15 @@ public class FizzBuzz {
         this.numbers = numbers;
     }
 
-    void run() {
-        process().forEach(System.out::println);
+    public void print() {
+        convertAll().forEach(System.out::println);
     }
 
-    List<String> process() {
-        return this.numbers.stream().map(this::fizzBuzz).collect(Collectors.toList());
+    List<String> convertAll() {
+        return this.numbers.stream().map(this::convert).collect(Collectors.toList());
     }
 
-    String fizzBuzz(Integer i) {
+    String convert(Integer i) {
         if (canDivideBy3(i) && canDivideBy5(i)) {
             return "FizzBuzz";
 
@@ -47,6 +47,6 @@ public class FizzBuzz {
 
     public static void main(String... args) {
         List<Integer> numbers = IntStream.rangeClosed(1, 100).boxed().collect(Collectors.toList());
-        new FizzBuzz(numbers).run();
+        new FizzBuzz(numbers).print();
     }
 }
