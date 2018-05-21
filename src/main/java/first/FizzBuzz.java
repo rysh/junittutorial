@@ -1,11 +1,16 @@
 package first;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FizzBuzz {
     private List<Integer> numbers;
+
+    public FizzBuzz(Integer... numbers) {
+        this(Arrays.asList(numbers));
+    }
 
     public FizzBuzz(List<Integer> numbers) {
         this.numbers = numbers;
