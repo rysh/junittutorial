@@ -1,6 +1,5 @@
 package first;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -8,23 +7,19 @@ import java.util.stream.IntStream;
 public class FizzBuzz {
     private List<Integer> numbers;
 
-    public FizzBuzz(Integer... numbers) {
-        this(Arrays.asList(numbers));
-    }
-
     public FizzBuzz(List<Integer> numbers) {
         this.numbers = numbers;
     }
 
-    void run() {
-        process().forEach(System.out::println);
+    public void print() {
+        convertAll().forEach(System.out::println);
     }
 
-    List<String> process() {
-        return this.numbers.stream().map(this::fizzBuzz).collect(Collectors.toList());
+    List<String> convertAll() {
+        return this.numbers.stream().map(this::convert).collect(Collectors.toList());
     }
 
-    String fizzBuzz(Integer i) {
+    String convert(Integer i) {
         if (canDivideBy3(i) && canDivideBy5(i)) {
             return "FizzBuzz";
 
@@ -47,6 +42,6 @@ public class FizzBuzz {
 
     public static void main(String... args) {
         List<Integer> numbers = IntStream.rangeClosed(1, 100).boxed().collect(Collectors.toList());
-        new FizzBuzz(numbers).run();
+        new FizzBuzz(numbers).print();
     }
 }
