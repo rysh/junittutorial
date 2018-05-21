@@ -32,9 +32,9 @@ public class FizzBuzzTest {
     @Test
     public void fizzBuzz() {
         FizzBuzz target = new FizzBuzz();
-        assertEquals("fizzBuzz 1","1",target.fizzBuzz(1));
-        assertEquals("fizzBuzz 2","2",target.fizzBuzz(2));
-        assertEquals("fizzBuzz 3","Fizz",target.fizzBuzz(3));
+        assertEquals("fizzBuzz 1","1",target.convert(1));
+        assertEquals("fizzBuzz 2","2",target.convert(2));
+        assertEquals("fizzBuzz 3","Fizz",target.convert(3));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class FizzBuzzTest {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 15);
         FizzBuzz target = new FizzBuzz(numbers);
 
-        List<String> result = target.process();
+        List<String> result = target.convertAll();
 
         List<String> expected = Arrays.asList("1", "2", "Fizz", "4", "Buzz", "FizzBuzz");
         assertThat(result, Is.is(expected));
